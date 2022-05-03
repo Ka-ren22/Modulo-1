@@ -5,8 +5,8 @@ function BinarioADecimal(num) {
   // algo
   /*
   Separar los datos, uso split();
-  Por cada uno de ellos hago una operacion matematica
-  Los sumo en un resultado final
+  Por cada uno de ellos hago una operacion matematica.
+  Los sumo en un resultado final.
   */
 
   var arreglo = num.split(""); //separa los datos en un array
