@@ -22,7 +22,7 @@ function nFactorial(n) {
  			return 0;
  		}
  	console.log(n);
- 	return n * nFactorial(n-1);
+ 	return n * nFactorial(n-1);  //llama a la recursion
 
 /*	for (var i = 0 i<2; i++) {
 		console.log(i)
@@ -37,10 +37,13 @@ function nFibonacci(n) {
   // nFibonacci(0) // 0  // el elemento 0 es cero
   // nFibonacci(1) // 1 // el elemento 1 es 1
   // nFibonacci(6) // 1 // el elemento 6 es 8
-  if (n>=0 && n<2) {
+
+  //Triangulo de Tartaglia 
+
+  if (n>=0 && n<2) {   //Condicion de corte
   	return n;	
   }
-  return nFibonacci(n-1) + nFibonacci(n-2)
+  return nFibonacci(n-1) + nFibonacci(n-2)   //Llama a la recursion
 
 }
 
@@ -50,22 +53,22 @@ function nFibonacci(n) {
 // dequeue: Remueve un valor de la queue. Obedece a FIFO y respeta el underflow (devuelve undefined cuando la queue tiene size cero, o sea, cuando no tiene ningún elemento).
 // size: Devuelve el número de elementos que contiene la queue.
 
-function Queue() {
+function Queue() {    //Clase, responde al this
 	this.array =[];
      }
-let queue1 = new Queue();
+let queue1 = new Queue();  //Instancia
 
-Queue.prototype.size = function() {
+Queue.prototype.size = function() {   //Metedos de la clase --> prototype
 
-        return this.array.length;
+        return this.array.length; //devuelve numero de elementos
     }
 
 Queue.prototype.enqueue = function(value) {
-         return this.array.push(value);
+         return this.array.push(value);   //agrega un valor al final
     }
 
 Queue.prototype.dequeue = function() {
-        return this.array.shift();
+        return this.array.shift();  //saca el primer elemento del array
     }
 
 
