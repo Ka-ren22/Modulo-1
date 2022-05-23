@@ -8,11 +8,20 @@ function BinarioADecimal(num) {
   Por cada uno de ellos hago una operacion matematica.
   Los sumo en un resultado final.
   */
+  // Primera forma:
 
-  var arreglo = num.split(""); //separa los datos en un array
-  var resultado = 0;
-  for (var i =0 ; i< num.length ; i++) {
-  	resultado = resultado + arreglo[i] *Math.pow(2, num.length -1 -i);
+  //var arreglo = num.split(""); //separa los datos en un array
+  //var resultado = 0;
+  //for (var i =0 ; i< num.length ; i++) {
+  //	resultado = resultado + arreglo[i] *Math.pow(2, num.length -1 -i);
+  //}
+  //return resultado;
+
+  //Segunda forma:
+  let resultado = 0;
+  let numeroSeparado = num.split("");
+  for(let i = 0 ; i < num.length ; i++){
+      resultado = resultado + numeroSeparado[i]*2 **(num.length-1-i);
   }
   return resultado;
 }
@@ -28,16 +37,26 @@ function DecimalABinario(num) {
   Tomo todos los restos para formar el binario
   Los guardo en un array
   */
-  if (num < 0 ) {
-  	return "Enviar un numero mayor a cero";
-  }
-  var arreglo =[]; 
+ //Primera forma
+  //if (num < 0 ) {
+  //	return "Enviar un numero mayor a cero";
+  //}
+  //var arreglo =[]; 
 
+  //while(num > 0){
+  //	arreglo.unshift(num%2);
+  //	num = Math.floor(num/2);
+  //}  
+  //return arreglo.join("");
+  
+//Segunda forma
+
+  let resultado = [];
   while(num > 0){
-  	arreglo.unshift(num%2);
-  	num = Math.floor(num/2);
-  }  
-  return arreglo.join("");
+    resultado.unshift(num%2);
+    num = Math.floor(num/2);
+  }
+return resultado.join("");
 }
 
 // No se pueden usar: 
