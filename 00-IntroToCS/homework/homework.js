@@ -17,6 +17,9 @@ function BinarioADecimal(num) {
   return resultado;
 }
 
+console.log(BinarioADecimal("100"));
+
+
 function DecimalABinario(num) {
   // tu codigo aca
   /*
