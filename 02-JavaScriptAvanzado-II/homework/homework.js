@@ -96,7 +96,7 @@ let textoGuiones = crearCadena.bind(null, '-','-');
 
 let textoUnderscore = crearCadena.bind(null,'_','_');
 
-
+//
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
