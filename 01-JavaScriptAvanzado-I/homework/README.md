@@ -54,36 +54,36 @@ baz = 2;
 ```
 
 ```javascript
-var instructor = "Tony"; 
+var instructor = "Tony";  //var se pisa cuando se reasigna, toma el ultimo valor agregado dentro de su contexto
 if(true) {
     var instructor = "Franco";
 }
-console.log(instructor); //"Franco"
+console.log(instructor); //"Franco" --> reasigna la variable
 ```
 
 ```javascript
 var instructor = "Tony";
 console.log(instructor); //"Tony"
-(function() {
+(function() {  //Otro contexto de ejecucion
    if(true) {
       var instructor = "Franco";
       console.log(instructor); //Franco
    }
 })();
-console.log(instructor); //Tony
+console.log(instructor); //Tony --> toma el valor del global
 ```
 
 ```javascript
-var instructor = "Tony"; 
-let pm = "Franco";
-if (true) {
+var instructor = "Tony";  //var se pisa cuando se reasigna
+let pm = "Franco";  //let es fija
+if (true) {  //otro contexto de ejecucion
     var instructor = "The Flash";
     let pm = "Reverse Flash";
     console.log(instructor); //The Flash
     console.log(pm); //Reverse Flash
 }
-console.log(instructor); //Tony
-console.log(pm); //Franco
+console.log(instructor); //Tony  --> mira al global
+console.log(pm); //Franco  --> mira al global
 ```
 ### Coerción de Datos
 
@@ -92,20 +92,20 @@ console.log(pm); //Franco
 ```javascript
 6 / "3" // 2
 "2" * "3" // 6
-4 + 5 + "px" // undefined
-"$" + 4 + 5 // undefined
-"4" - 2 // 2
-"4px" - 2 // undefined
-7 / 0 // error
-{}[0] // []
-parseInt("09") //
-5 && 2 //  False
-2 && 5 // False
-5 || 0 // True
-0 || 5 // True
+4 + 5 + "px" // "45px" -->concatena
+"$" + 4 + 5 // "$45" -->concatena
+"4" - 2 // 2  --> lo toma como 2 numeros
+"4px" - 2 // Nan --> operaciones matematicas solo definidas para numeros
+7 / 0 // Infinito
+{}[0] // [0] --> devuelve la posicion 0 del arr
+parseInt("09") // 9
+5 && 2 //  2 ->devuelve el ultimo
+2 && 5 // 5 
+5 || 0 // 5 --> devuelve el true
+0 || 5 // 5
 [3]+[3]-[10] // 
-3>2>1 //
-[] == ![] // False
+3>2>1 //true
+[] == ![] // true
 ```
 
 > Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
@@ -126,8 +126,8 @@ function test() {
    }
 }
 
-test(); // 1
-		// 2
+test(); // 2
+		
 ```
 
 Y el de este código? :
@@ -143,7 +143,7 @@ function getFood(food) {
     return snack;
 }
 
-getFood(false); //'Meow Mix'
+getFood(false); //'Meow Mix' --> como no lo tiene apunta al global
 ```
 
 
@@ -163,11 +163,11 @@ var obj = {
    }
 };
 
-console.log(obj.prop.getFullname()); // Natalia Perez
+console.log(obj.prop.getFullname()); // Aurelio de la Rosa
 
 var test = obj.prop.getFullname;
 
-console.log(test()); //Aurelio De Rosa
+console.log(test()); //Juan Perez
 ```
 
 ### Event loop
@@ -178,8 +178,8 @@ Considerando el siguiente código, ¿Cuál sería el orden en el que se muestra 
 function printing() {
    console.log(1); //1º
    setTimeout(function() { console.log(2); }, 1000); // 4ª
-   setTimeout(function() { console.log(3); }, 0); //2ª
-   console.log(4); // 3ª
+   setTimeout(function() { console.log(3); }, 0); //3ª
+   console.log(4); // 2ª
 }
 
 printing();
