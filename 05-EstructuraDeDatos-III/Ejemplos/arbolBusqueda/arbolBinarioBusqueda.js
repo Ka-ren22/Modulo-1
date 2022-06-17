@@ -11,13 +11,13 @@ function Node(data){
 }
 
 Node.prototype.search = function(s){
-	if(this.data === s){
+	if(this.data === s){   
 		return this;
 	}
-	if(s <= this.data && this.left !== null){
-		return this.left.search(s);
-	}else if(s > this.data && this.right !== null){
-		return this.right.search(s)
+	if(s <= this.data && this.left !== null){ //si s es <= al nodo y  hay valor izq
+		return this.left.search(s);  //llama a la recursion
+	}else if(s > this.data && this.right !== null){   //s > nodo y hay der
+		return this.right.search(s)  //recursion
 	}else{
 		return undefined;
 	}

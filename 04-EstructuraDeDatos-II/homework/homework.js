@@ -119,7 +119,7 @@ HashTable.prototype.set= function(key, value){
 HashTable.prototype.get= function(key){
 	let i = this.hash(key);
 	return this.buckets[i][key];
-};
+};0
 
 HashTable.prototype.hasKey= function(key){
 	
